@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Foto van de dag</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    img {
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <img id="dailyImage" src="" alt="Foto van de dag">
+
+  <script>
+    const images = [
+      "https://drive.google.com/uc?export=download&id=1d1jRjfE0DUf7J6qVeFIA5snowYa2nL0K",
+      "https://drive.google.com/uc?export=download&id=JE-BESTANDS-ID2",
+      "https://drive.google.com/uc?export=download&id=JE-BESTANDS-ID3"
+    ];
+
+    const today = new Date();
+    const start = new Date(today.getFullYear(), 0, 0);
+    const diff = today - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+
+    const imageIndex = dayOfYear % images.length;
+    document.getElementById("dailyImage").src = images[imageIndex];
+  </script>
+</body>
+</html>
