@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dagelijkse Spreuk</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    text-align: center;
+    background-color:transparant; /* Pas dit aan naar je website achtergrond */
+  }
+  #spreuk {
+    font-size: 1.5em;
+    margin: 20px auto;
+    max-width: 700px;
+    padding: 20px;
+    /* Transparante achtergrond en witte tekst */
+    background-color: rgba(0, 0, 0, 0); /* Transparant */
+    color: white; /* Witte tekst */
+    border-radius: 10px;
+    /* Optioneel: voeg een schaduw toe voor beter leesbaarheid */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<h1>Frase del día</h1>
+<div id="spreuk"></div>
+
+<script>
+  const spreuken = [
+    "1 De enige manier om geweldig werk te doen, is door ervan te houden. – Steve Jobs",
+    "2 Geluk is niet iets kant-en-klaars. Het komt voort uit jouw eigen daden. – Dalai Lama",
+    "3 De toekomst behoort aan degenen die in de schoonheid van hun dromen geloven. – Eleanor Roosevelt",
+    "4 Succes is niet de sleutel tot geluk. Geluk is de sleutel tot succes. – Albert Schweitzer",
+    "5 Elke dag is een nieuwe kans om te groeien. – Anoniem",
+    "6 Wees de verandering die je in de wereld wilt zien. – Mahatma Gandhi",
+    "7 Geloof in jezelf en alles wat je bent. Weet dat er iets in jou is dat groter is dan elk obstakel. – Christian D. Larson",
+    "8 Het enige echte falen is opgeven. – Elbert Hubbard",
+    "9 De enige beperking is degene die je jezelf oplegt. – Napoleon Hill",
+    "10 Droom groot, begin klein, handel nu. – Robin Sharma",
+    "11 Het beste wat je kunt doen, is het beste dat je kunt. – Abraham Lincoln",
+    "12 Het leven is 10% wat je meemaakt en 90% hoe je erop reageert. – Charles R. Swindoll",
+    "13 Blijf niet wachten op het perfecte moment, pak het moment en maak het perfect. – Zoey Sayward",
+    "14 De grootste glorie in het leven ligt niet in nooit vallen, maar in telkens weer opstaan. – Nelson Mandela",
+    "15 Verandering is de wet van het leven. – John F. Kennedy",
+    "16 Succes wordt niet bepaald door de omstandigheden, maar door je houding ten opzichte daarvan. – Earl Nightingale",
+    "17 Doe wat je kunt, met wat je hebt, waar je bent. – Theodore Roosevelt",
+    "18 Het is nooit te laat om te worden wie je had moeten zijn. – George Eliot",
+    "19 De enige manier om het onmogelijke te doen, is door het mogelijk te maken. – Walter Disney",
+    "20 Los recuerdos felices son medicina para el alma",
+    "21 Jouw tijd is beperkt, dus verspil het niet door het te leven van iemand anders. – Steve Jobs",
+    "22 De kracht om te veranderen ligt in jezelf. – Oprah Winfrey",
+    "23 Het leven begint aan het einde van je comfortzone. – Neale Donald Walsch",
+    "24 Kansen favoriseren de moedigen. – Terence McKenna",
+    "25 Het beste moet nog komen. – Anoniem",
+    "26 Maak elke dag de beste dag van je leven. – Anoniem",
+    "27 Het geheim van succes is consistentie van doelgerichte actie. – Tony Robbins",
+    "28 Je bent nooit te oud om een nieuw doel te stellen of een nieuwe droom te dromen. – C.S. Lewis",
+    "29 Wat je vandaag doet, bepaalt je morgen. – Mahatma Gandhi",
+    "30 Grote dingen worden niet gedaan door impuls, maar door een reeks kleine dingen bij elkaar te voegen. – Vincent Van Gogh",
+    "31 Vergeet niet dat geluk geen bestemming is, maar een manier van reizen. – Roy T. Bennett",
+    "32 Wat je gelooft, wordt jouw werkelijkheid. – Oprah Winfrey",
+    "33 De reis van duizend mijl begint met één stap. – Lao Tse",
+    "34 De enige manier om echt geluk te vinden, is door jezelf te accepteren. – Buddha",
+    "35 Durf te dromen, durf te doen. – Walt Disney",
+    "36 De beste tijd om een boom te planten was 20 jaar geleden. De op één na beste tijd is nu. – Chinees gezegde",
+    "37 Laat nooit iemand je vertellen dat je iets niet kunt doen. – Will Smith",
+    "38 Vertrouw op jezelf. Je weet meer dan je denkt. – Benjamin Spock",
+    "39 Streef niet naar succes, maar naar waarde. – Albert Einstein",
+    "40 De kracht van verandering ligt in jouw handen. – Anoniem",
+    "41 Blijf doorgaan, zelfs als het moeilijk wordt. – Winston Churchill",
+    "42 Elke dag biedt nieuwe kansen. Grijp ze. – Anoniem",
+    "43 Vasthouden aan je dromen is de eerste stap naar succes. – Anoniem",
+    "44 Het beste is nog niet gekomen. – Anoniem",
+    "45 Wees de verandering die je in de wereld wilt zien. – Mahatma Gandhi",
+    "46 Het leven is een avontuur, durf het aan te gaan. – Mother Teresa",
+    "47 Succes is de som van kleine inspanningen die dag na dag worden herhaald. – Robert Collier",
+    "48 La disciplina es la llave que abre las puertas del éxito"
+  ];
+
+  function dagVanHetJaar() {
+    const nu = new Date();
+    const startVanJaar = new Date(nu.getFullYear(), 0, 0);
+    const diff = nu - startVanJaar;
+    const eenDag = 1000 * 60 * 60 * 24;
+    return Math.floor(diff / eenDag);
+  }
+
+  const dagNummer = dagVanHetJaar();
+  const index = dagNummer % spreuken.length;
+  const vandaagSpreuk = spreuken[index];
+
+  document.getElementById('spreuk').textContent = vandaagSpreuk;
+</script>
+
+</body>
+</html>
